@@ -1,4 +1,3 @@
-"Python wrapper class for TourCMS Rest API"
 import hmac
 import hashlib
 import datetime as dt
