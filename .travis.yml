@@ -9,5 +9,5 @@ install: "pip install -r requirements.txt --use-mirrors"
 script: python tests.py
 env:
     global:
-        - secure: "DcM0FtLHBd4XdsspBnKebrY9xplIuskuZ6tkSkx+nlhPTcnWuiG5l8QqN4VP\nkG+EYRx1F1u+rzHDlV4854DaCjt6UMNi6Iktl3zaG1HfC44visb+HBSvRdUV\nN0BZfNPd2XP2oPR6QwOMqgx6Xf4/noQ7fD1qHXaLjKbqTBGWcKE="
-        - secure: "a4C5jiNbmJ4ZF7RG1995eq4PAW2ftjWai2F9dIAxf+/7oiBzgBUw+9FVkWCa\n70q2BPg8vpLfAdlDvKv2t38MUtjMIeWjtm+MNR8BhuBEuZsUsvpY97TBloiy\n5IGMi8V18veaKjihE3JUPYLI+ZFqtfrJlHuTPR+wupR+neA0qDc="
+        - secure: "LhoIeVgverw9wswVNkviV0rfmxfTPg9OnuyrBScSOqOxWledQRoCNvuXePpZ\nzuBssB3xX5lsmoHusDPWf8wG4dd7tykn60rPTmfYVk/vOmt0gADgKMvJAsy1\n0ALzEImwsvgg2YWDiaZ4UlxD1QVEzHLxnlAwpVGxPD4NHUyfOew="
+        - secure: "chUDc6u5nD76qgAck9pU+lTRjVA3IEppBQAgM/ZW/25fzALMTN3Vh1bG5/Y5\nzD5po+Cqo716migWtb4rccEXKmi5PpB8NBNxOVMEpPPsxA5dfEtIV8/w6Non\nPslPK3r95rKTVTC1C8jv7oXkXteWw0O7zF212/TYs20t/DY26Ik="
