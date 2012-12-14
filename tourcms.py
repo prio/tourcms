@@ -2,8 +2,14 @@
 import hmac
 import hashlib
 import datetime as dt
-import urllib
-import urllib2
+try: # Python 3
+  import urllib.parse as urllib
+except ImportError:
+  import urllib
+try: # Python 3
+  import urllib.request as urllib2
+except ImportError: 
+    import urllib2
 try:
   import xmltodict
 except ImportError:
@@ -30,7 +36,7 @@ class Connection(object):
     
   def _generate_signature(self, path, verb, channel, outbound_time):
     string_to_sign = u"{0}/{1}/{2}/{3}{4}".format(channel, self.marketp_id, verb, outbound_time, path)
-    dig = hmac.new(self.private_key, string_to_sign, hashlib.sha256)
+    dig = hmac.new(self.private_key.encode('utf8'), string_to_sign.encode('utf8'), hashlib.sha256)
     b64 = base64.b64encode(dig.digest())
     return urllib.quote_plus(b64)
 

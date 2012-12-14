@@ -15,7 +15,7 @@ if os.getenv('TOURCMS_CHANNEL_KEY', None) is None:
 
 class TestConnection(unittest.TestCase):
     def setUp(self):
-        self.conn = Connection(0, os.getenv('TOURCMS_PRIVATE_KEY'))
+        self.conn = Connection(0, os.getenv(u'TOURCMS_PRIVATE_KEY'))
 
     def test_generate_signature(self):
         verb = 'GET'
@@ -36,8 +36,9 @@ class TestConnection(unittest.TestCase):
 
     def test_i_can_authenticate(self):
         try:
-            resp = self.conn.api_rate_limit_status(os.getenv('TOURCMS_CHANNEL_KEY'))
-        except Exception, e:
+            resp = self.conn.api_rate_limit_status(os.getenv(u'TOURCMS_CHANNEL_KEY'))
+        except Exception:
+            e = sys.exc_info()[1].args[0]
             self.fail("Unable to check api rate limit: {}".format(e))
 
 

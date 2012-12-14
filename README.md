@@ -2,7 +2,7 @@
 
 A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.com/support/api/mp/). This wrapper mirrors the TourCMS PHP library.
 
-[![Build Status](https://secure.travis-ci.org/prio/tourcms.png)](http://travis-ci.org/prio/tourcms)
+[![Build Status](https://travis-ci.org/prio/tourcms.png?branch=master)](https://travis-ci.org/prio/tourcms)
 
 ## Install
 
@@ -79,7 +79,7 @@ Many TourCMS methods accept parameters. Most methods take a dictionary of parame
 
 ## Dependencies
 
-None. xmltodict optional. Tested with Python 2.6, 2.7 & 3.2.
+None. xmltodict optional. Tested with Python 2.6, 2.7 & 3.3.
 
 ## Copyright
 
