@@ -40,3 +40,7 @@ class TestConnection(unittest.TestCase):
             resp = self.conn.api_rate_limit_status(os.getenv('TOURCMS_CHANNEL_KEY'))
         except Exception, e:
             self.fail("Unable to check api rate limit: {}".format(e))
+
+
+if __name__ == '__main__':
+    unittest.main()
