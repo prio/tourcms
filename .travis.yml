@@ -7,3 +7,7 @@ python:
 install: "pip install -r requirements.txt --use-mirrors"
 # command to run tests
 script: python tests.py
+env:
+    global:
+        - secure: "DcM0FtLHBd4XdsspBnKebrY9xplIuskuZ6tkSkx+nlhPTcnWuiG5l8QqN4VP\nkG+EYRx1F1u+rzHDlV4854DaCjt6UMNi6Iktl3zaG1HfC44visb+HBSvRdUV\nN0BZfNPd2XP2oPR6QwOMqgx6Xf4/noQ7fD1qHXaLjKbqTBGWcKE="
+        - secure: "a4C5jiNbmJ4ZF7RG1995eq4PAW2ftjWai2F9dIAxf+/7oiBzgBUw+9FVkWCa\n70q2BPg8vpLfAdlDvKv2t38MUtjMIeWjtm+MNR8BhuBEuZsUsvpY97TBloiy\n5IGMi8V18veaKjihE3JUPYLI+ZFqtfrJlHuTPR+wupR+neA0qDc="
