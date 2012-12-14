@@ -42,9 +42,10 @@ Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. 
 ```
 
 ### Working with your connection in Dictionary mode
-    Requires xmltodict to be installed
+Requires xmltodict to be installed
 
-        pip install xmltodict
+    pip install xmltodict
+
 
 ```python
     # Instantiate the connection
