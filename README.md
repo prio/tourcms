@@ -10,11 +10,11 @@ A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.
     
 ## Usage
 
-Using the library is as simple as creating a **TourCMS::Connection** object:
+Using the library is as simple as creating a **Connection** object:
 
-    conn = TourCMS::Connection.new(marketplace_id, private_key, result_type)
+    conn = tourcms.Connection(marketplace_id, private_key, result_type)
     
-Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. The result type can be one of **hash** or **raw** where **raw** will return the raw XML from the API and **hash** will return a Ruby Hash of the result.
+Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. The result type can be one of **dict** or **raw** where **raw** will return the raw XML from the API and **dict** will return a dictionary of the result. Dict requires xmltodict to be installed.
 
 ### Working with your connection in Raw mode
 
