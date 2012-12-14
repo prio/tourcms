@@ -45,7 +45,7 @@ Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. 
     Requires xmltodict to be installed
 
         pip install xmltodict
-        
+
 ```python
     # Instantiate the connection
     conn = Connection(0, os.getenv('TOURCMS_PRIVATE_KEY'), "dict")
@@ -63,7 +63,7 @@ Many TourCMS methods accept parameters. Most methods take a dictionary of parame
 
     obj = conn.search_tours({"country": "GB", "lang": "en"})
 
-## List of functions in TourCMS::Connection
+## List of functions in tourcms.Connection
 
 *   api\_rate\_limit\_status
 *   list\_channels
