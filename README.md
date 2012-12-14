@@ -39,12 +39,14 @@ Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. 
     conn.show_channel(1234567)
     => ""<?xml version="1.0" encoding="utf-8" ?><response><request>GET /p/channels/list.xml</request>
         <error>OK</error><channel>(...)</channel></response>"
+```
 
 ### Working with your connection in Dictionary mode
     Requires xmltodict to be installed
 
         pip install xmltodict
-
+        
+```python
     # Instantiate the connection
     conn = Connection(0, os.getenv('TOURCMS_PRIVATE_KEY'), "dict")
 
@@ -53,7 +55,8 @@ Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. 
     => OrderedDict([(u'request', u'GET /api/rate_limit_status.xml?'), (u'error', u'OK'), (u'remaining_hits', u'1999'), (u'hourly_limit', u'2000')])
     obj["hourly_limit"]
     => 2000   
-    
+```
+
 ### Passing parameters
 
 Many TourCMS methods accept parameters. Most methods take a dictionary of parameters like so:
