@@ -79,7 +79,7 @@ Many TourCMS methods accept parameters. Most methods take a dictionary of parame
 
 ## Dependencies
 
-None. xmltodict optional. Tested with Python 2.7.
+None. xmltodict optional. Tested with Python 2.6, 2.7 & 3.2.
 
 ## Copyright
 

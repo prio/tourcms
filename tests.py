@@ -1,4 +1,3 @@
-from __future__ import print_function
 import unittest
 import os
 import sys
@@ -6,11 +5,11 @@ from tourcms import Connection
 
 
 if os.getenv('TOURCMS_PRIVATE_KEY', None) is None:
-    print("You must set the 'TOURCMS_PRIVATE_KEY' environment variable to run tests", file=sys.stderr)
+    sys.stderr.write("You must set the 'TOURCMS_PRIVATE_KEY' environment variable to run tests\n")
     sys.exit(1)
 
 if os.getenv('TOURCMS_CHANNEL_KEY', None) is None:
-    print("You need to set 'TOURCMS_CHANNEL_KEY' to run tests", file=sys.stderr)
+    sys.stderr.write("You need to set 'TOURCMS_CHANNEL_KEY' to run tests\n")
     sys.exit(1)
 
 
@@ -32,7 +31,7 @@ class TestConnection(unittest.TestCase):
             signed_str = self.conn._generate_signature(*args)
             self.assertEqual(
                 signed_str, output, 
-                "Failed for '{}'. '{}' != '{}'".format(args[0], signed_str, output)
+                "Failed for '{0}'. '{1}' != '{2}'".format(args[0], signed_str, output)
             )
 
     def test_i_can_authenticate(self):

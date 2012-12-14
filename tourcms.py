@@ -1,5 +1,4 @@
 "Python wrapper class for TourCMS Rest API"
-from __future__ import print_function
 import hmac
 import hashlib
 import datetime as dt
@@ -30,7 +29,7 @@ class Connection(object):
     self.base_url = "https://api.tourcms.com"
     
   def _generate_signature(self, path, verb, channel, outbound_time):
-    string_to_sign = u"{}/{}/{}/{}{}".format(channel, self.marketp_id, verb, outbound_time, path)    
+    string_to_sign = u"{0}/{1}/{2}/{3}{4}".format(channel, self.marketp_id, verb, outbound_time, path)
     dig = hmac.new(self.private_key, string_to_sign, hashlib.sha256)
     b64 = base64.b64encode(dig.digest())
     return urllib.quote_plus(b64)
@@ -42,7 +41,7 @@ class Connection(object):
       return xmltodict.parse(response)
     except NameError:
       import sys
-      print("XMLtodict not available, install it by running\n\t$ pip install xmltodict", file=sys.stderr)
+      sys.stderr.write("XMLtodict not available, install it by running\n\t$ pip install xmltodict\n")
       return response
 
   def _request(self, path, channel = 0, params = {}, verb = "GET"):
@@ -55,7 +54,7 @@ class Connection(object):
       "Content-type": "text/xml", 
       "charset": "utf-8", 
       "Date": req_time.strftime("%a, %d %b %Y %H:%M:%S GMT"), 
-      "Authorization": "TourCMS {}:{}:{}".format(channel, self.marketp_id, signature)
+      "Authorization": "TourCMS {0}:{1}:{2}".format(channel, self.marketp_id, signature)
     }
     req = urllib2.Request(url)
     for key, value in headers.items():
