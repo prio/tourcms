@@ -31,7 +31,7 @@ Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. 
         <error>OK</error><remaining_hits>1999</remaining_hits><hourly_limit>2000</hourly_limit></response>"
 
     # List the channels we have access to
-    conn.list_channels
+    conn.list_channels(channel_id)
     => ""<?xml version="1.0" encoding="utf-8" ?><response><request>GET /p/channels/list.xml</request>
         <error>OK</error><channel>(...)</channel><channel>(...)</channel><channel>(...)</channel></response>"
     
@@ -77,6 +77,7 @@ Many TourCMS methods accept parameters. Most methods take a dictionary of parame
 *   show\_tour
 *   show\_tour\_departures
 *   show\_tour\_freesale
+*   show\_supplier
 
 ## Dependencies
 

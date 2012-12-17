@@ -19,7 +19,7 @@ import logging
 
 
 __author__ = 'Jonathan Harrington'
-__version__ = '0.2'
+__version__ = '0.3'
 __license__ = 'BSD'
 
 
@@ -123,3 +123,8 @@ class Connection(object):
   
   def show_tour_freesale(self, tour, channel):
     return self._request("/c/tour/datesprices/freesale/show.xml", channel, {"id": tour})
+
+  def show_supplier(self, supplier, channel):
+    return self._request("/c/supplier/show.xml", channel, {"supplier_id": supplier})
+
+
