@@ -46,19 +46,24 @@ class Connection(object):
 
   def _response_to_native(self, response):
     try:
-      return xmltodict.parse(response)['response']
+      print response; return xmltodict.parse(response)['response']
     except KeyError:
       return xmltodict.parse(response)
     except NameError:
       self.logger.error("XMLtodict not available, install it by running\n\t$ pip install xmltodict\n")
       return response
 
-  def _request(self, path, channel = 0, params = {}, verb = "GET"):
-    url = self.base_url + path + "?" + urllib.urlencode(params)
+  def _request(self, path, channel = 0, params = {}, verb = "GET", post_data=None):
+    if params:
+      query_string = "?" + urllib.urlencode(params)
+    else:
+      query_string = ''
+      
+    url = self.base_url + path + query_string
     self.logger.debug("url is: {0}".format(url))
     req_time = dt.datetime.utcnow()
     signature = self._generate_signature(
-      path + "?" + urllib.urlencode(params), verb, channel, int(time.mktime(req_time.timetuple()))
+      path + query_string, verb, channel, int(time.mktime(req_time.timetuple()))
     )    
     headers = {
       "Content-type": "text/xml", 
@@ -71,7 +76,12 @@ class Connection(object):
     req = urllib2.Request(url)
     for key, value in headers.items():
       req.add_header(key, value)
-    response = urllib2.urlopen(req).read()
+    
+    if verb == "POST" and post_data is not None:
+      response = urllib2.urlopen(req, post_data).read()
+    else:
+      response = urllib2.urlopen(req).read()
+      
     return response if self.result_type == "raw" else self._response_to_native(response)
 
   def api_rate_limit_status(self, channel = 0):
@@ -126,5 +136,6 @@ class Connection(object):
 
   def show_supplier(self, supplier, channel):
     return self._request("/c/supplier/show.xml", channel, {"supplier_id": supplier})
-
-
+    
+  def get_booking_redirect_url(self, data, channel = 0):
+    return self._request("/c/booking/new/get_redirect_url.xml", channel, {}, "POST", data)
