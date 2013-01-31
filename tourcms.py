@@ -46,7 +46,7 @@ class Connection(object):
 
   def _response_to_native(self, response):
     try:
-      print response; return xmltodict.parse(response)['response']
+      return xmltodict.parse(response)['response']
     except KeyError:
       return xmltodict.parse(response)
     except NameError:
