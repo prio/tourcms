@@ -61,9 +61,19 @@ class Connection(object):
 
     url = self.base_url + path + query_string
     self.logger.debug("url is: {0}".format(url))
+
+    # Generating two different times here as I couldn't figure out how to make one format from the other
+    # Previous version broke when running in a non GMT environment
+    # Paul (TourCMS)
+
+    # Current unix timestamp, used in the signature
+    sign_time = int(time.time())
+
+    # Current UTC time, used in the Date header
     req_time = dt.datetime.utcnow()
+
     signature = self._generate_signature(
-      path + query_string, verb, channel, int(time.mktime(req_time.timetuple()))
+      path + query_string, verb, channel, sign_time
     )
     headers = {
       "Content-type": "text/xml",
