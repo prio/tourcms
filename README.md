@@ -6,8 +6,6 @@ A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.
 
 ## Install
 
-NOTE: At the time of writing this repo is ahead of the version in pip which does not include the fix for non GMT environments.
-
     pip install tourcms
 
 ## Usage
