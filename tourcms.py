@@ -62,15 +62,8 @@ class Connection(object):
     url = self.base_url + path + query_string
     self.logger.debug("url is: {0}".format(url))
 
-    # Generating two different times here as I couldn't figure out how to make one format from the other
-    # Previous version broke when running in a non GMT environment
-    # Paul (TourCMS)
-
-    # Current unix timestamp, used in the signature
+    # Current unix timestamp, used in the signature and x-tourcms-date header
     sign_time = int(time.time())
-
-    # Current UTC time, used in the Date header
-    req_time = dt.datetime.utcnow()
 
     signature = self._generate_signature(
       path + query_string, verb, channel, sign_time
@@ -78,7 +71,7 @@ class Connection(object):
     headers = {
       "Content-type": "text/xml",
       "charset": "utf-8",
-      "Date": req_time.strftime("%a, %d %b %Y %H:%M:%S GMT"),
+      "x-tourcms-date": sign_time,
       "Authorization": "TourCMS {0}:{1}:{2}".format(channel, self.marketp_id, signature)
     }
     self.logger.debug("Headers are: {0}".format(", ".join(["{0} => {1}".format(k,v)
