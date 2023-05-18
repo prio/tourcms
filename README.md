@@ -2,12 +2,6 @@
 
 A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.com/support/api/mp/). This wrapper mirrors the TourCMS PHP library.
 
-[![Build Status](https://travis-ci.org/prio/tourcms.png?branch=master)](https://travis-ci.org/prio/tourcms)
-
-## Install
-
-    pip install tourcms
-
 ## Usage
 
 Using the library is as simple as creating a **Connection** object:
