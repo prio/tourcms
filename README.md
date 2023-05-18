@@ -2,7 +2,7 @@
 
 A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.com/support/api/mp/). This wrapper mirrors the TourCMS PHP library.
 
-## Usage
+## Installation
 
 `pip install tourcms-py`
 
