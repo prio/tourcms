@@ -4,6 +4,10 @@ A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.
 
 ## Usage
 
+`pip install tourcms-py`
+
+## Usage
+
 Using the library is as simple as creating a **Connection** object:
 
     conn = tourcms.Connection(marketplace_id, private_key, result_type)
