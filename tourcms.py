@@ -33,6 +33,8 @@ class Connection(object):
     self.private_key = private_key
     self.result_type = result_type
     self.base_url = "https://api.tourcms.com"
+    self.user_agent = "TourCMS PHP Wrapper v4.0.0"
+    self.prepend_caller_to_user_agent = True
     self.logger = logging.getLogger("tourcms")
     self.logger.addHandler(logging.StreamHandler())
     self.logger.setLevel(loglevel)
@@ -74,6 +76,9 @@ class Connection(object):
       "x-tourcms-date": sign_time,
       "Authorization": "TourCMS {0}:{1}:{2}".format(channel, self.marketp_id, signature)
     }
+    if self.user_agent != "":
+      final_user_agent = self.user_agent+" ("+str(self.marketp_id)+"_"+str(channel)+")" if self.prepend_caller_to_user_agent else self.user_agent
+      headers.update({"User-Agent": final_user_agent})
     self.logger.debug("Headers are: {0}".format(", ".join(["{0} => {1}".format(k,v)
                                                            for k,v in headers.items()])))
     req = urllib2.Request(url)
@@ -86,6 +91,11 @@ class Connection(object):
       response = urllib2.urlopen(req).read()
 
     return response if self.result_type == "raw" else self._response_to_native(response)
+  
+  def set_user_agent(self, user_agent, prepend = True):
+    self.prepend_caller_to_user_agent = prepend
+    self.user_agent = user_agent
+    return True
 
   def api_rate_limit_status(self, channel = 0):
     return self._request("/api/rate_limit_status.xml", channel)
