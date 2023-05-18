@@ -33,7 +33,7 @@ class Connection(object):
     self.private_key = private_key
     self.result_type = result_type
     self.base_url = "https://api.tourcms.com"
-    self.user_agent = "TourCMS PHP Wrapper v4.0.0"
+    self.user_agent = "TourCMS Python Wrapper v1.0.0"
     self.prepend_caller_to_user_agent = True
     self.logger = logging.getLogger("tourcms")
     self.logger.addHandler(logging.StreamHandler())
