@@ -2,18 +2,16 @@
 
 A simple wrapper for connecting to [TourCMS Marketplace API](http://www.tourcms.com/support/api/mp/). This wrapper mirrors the TourCMS PHP library.
 
-[![Build Status](https://travis-ci.org/prio/tourcms.png?branch=master)](https://travis-ci.org/prio/tourcms)
+## Installation
 
-## Install
+`pip install tourcms-py`
 
-    pip install tourcms
-    
 ## Usage
 
 Using the library is as simple as creating a **Connection** object:
 
     conn = tourcms.Connection(marketplace_id, private_key, result_type)
-    
+
 Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. The result type can be one of **dict** or **raw** where **raw** will return the raw XML from the API and **dict** will return a dictionary of the result. Dict requires xmltodict to be installed.
 
 ### Working with your connection in Raw mode
@@ -34,7 +32,7 @@ Your Marketplace ID and Private Key can be found in the TourCMS Partner Portal. 
     conn.list_channels(channel_id)
     => ""<?xml version="1.0" encoding="utf-8" ?><response><request>GET /p/channels/list.xml</request>
         <error>OK</error><channel>(...)</channel><channel>(...)</channel><channel>(...)</channel></response>"
-    
+
     # Show a particular channel
     conn.show_channel(1234567)
     => ""<?xml version="1.0" encoding="utf-8" ?><response><request>GET /p/channels/list.xml</request>
@@ -78,6 +76,7 @@ Many TourCMS methods accept parameters. Most methods take a dictionary of parame
 *   show\_tour\_departures
 *   show\_tour\_freesale
 *   show\_supplier
+*   get\_booking\_redirect\_url
 
 ## Dependencies
 

@@ -3,14 +3,15 @@ from distutils.core import setup
 import tourcms
 
 
-setup(name='tourcms',
+setup(name='tourcms-py',
       version=tourcms.__version__,
       description="Python wrapper class for TourCMS Rest API",
-      long_description="A simple wrapper for connecting to the TourCMS Marketplace API (http://www.tourcms.com/support/api/mp/). This wrapper mirrors the TourCMS PHP library. See https://github.com/prio/tourcms for more details.",
-      author=tourcms.__author__,
-      author_email='jonathan@jonharrington.org',
-      url='https://github.com/prio/tourcms',
-      download_url='https://github.com/prio/tourcms',
+      long_description="A simple wrapper for connecting to the TourCMS Marketplace API (http://www.tourcms.com/support/api/mp/). Forked from /prio/tourcms. This wrapper mirrors the TourCMS PHP library. See https://github.com/TourCMS/
+      for more details.",
+      author='Palisis AG',
+      author_email='support@palisis.com',
+      url='https://github.com/TourCMS/tourcms-py',
+      download_url='https://github.com/TourCMS/tourcms-py',
       license=tourcms.__license__,
       platforms=['all'],
       classifiers=[
